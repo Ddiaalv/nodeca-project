@@ -1,0 +1,36 @@
+{
+  "name": "Next.js Typescript template",
+  "short_name": "Next.js Typescript template",
+  "display": "standalone",
+  "theme_color": "#282c34",
+  "background_color": "#282c34",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "icons/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "icons/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}
