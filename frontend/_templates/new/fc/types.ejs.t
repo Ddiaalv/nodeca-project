@@ -2,4 +2,4 @@
 to: <%= path %>/<%= name %>/<%= name %>.types.ts
 ---
 
-export interface <%= name %>Props {}
+export default interface <%= name %>Props {}
