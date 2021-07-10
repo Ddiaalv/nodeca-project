@@ -2,14 +2,15 @@ import Head from 'next/head'
 import { FC } from 'react'
 import { Footer } from '../Footer/Footer'
 import { Header } from '../Header/Header'
-import { LayoutStyled } from './Layout.styles'
+import { NavMenu } from '../NavMenu/NavMenu'
+import { Notebook, Paper } from './Layout.styles'
 import { LayoutProps } from './Layout.types'
 
 const Layout: FC<LayoutProps> = ({
   children,
   title = 'Next.js + Typescript template',
 }) => (
-  <LayoutStyled>
+  <Notebook>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
@@ -42,10 +43,13 @@ const Layout: FC<LayoutProps> = ({
       <link rel="apple-touch-icon" href="/icons/apple-icon.png" />
       <meta name="theme-color" content="#282c34" />
     </Head>
-    <Header />
-    <main>{children}</main>
-    <Footer />
-  </LayoutStyled>
+    <NavMenu />
+    <Paper>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </Paper>
+  </Notebook>
 )
 
 export default Layout

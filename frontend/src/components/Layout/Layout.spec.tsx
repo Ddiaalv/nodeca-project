@@ -1,11 +1,15 @@
 import { render } from '@testing-library/react'
+import { routes } from '../../../utils/routes/routes'
 import Layout from './Layout'
 
 describe('Layout', () => {
-  test('should display Header section', () => {
+  test('should display NavMenu', () => {
     const { getByText } = render(<Layout />)
-    const header = getByText('Home')
-    expect(header).toBeTruthy()
+    const routesContent = Object.keys(routes)
+    routesContent.forEach((key) => {
+      const menuName = getByText(routes[key].name)
+      expect(menuName).toBeTruthy()
+    })
   })
   test('should display Footer section', () => {
     const { getByText } = render(<Layout />)

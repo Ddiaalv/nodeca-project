@@ -7,7 +7,6 @@ export const globalStyles = css`
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background: #282c34;
   }
   * {
     box-sizing: border-box;
