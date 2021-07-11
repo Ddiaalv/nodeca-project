@@ -1,6 +1,13 @@
 import { FC } from 'react'
-import { HeaderStyled } from './Header.styles'
+import { HeaderImg, HeaderStyled, Title } from './Header.styles'
 
-export const Header: FC = () => <HeaderStyled></HeaderStyled>
+export const Header: FC = () => {
+  return (
+    <HeaderStyled>
+      <Title>Monstruos</Title>
+      <HeaderImg src="/img/monster-header.jpg" alt="" />
+    </HeaderStyled>
+  )
+}
 
 Header.displayName = 'Header'

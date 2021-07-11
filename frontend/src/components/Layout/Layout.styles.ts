@@ -3,13 +3,13 @@ import { styleGuide } from '../../../utils/styleGuide'
 
 const desktopNotebook = `
   margin: 0 auto;
-  width: 70%;
+  width: ${styleGuide.device.lg};
 `
 
 export const Notebook = styled.div`
   position: relative;
   display: grid;
-  background: url('/bg-notebook.jpg');
+  background: url('/img/bg-notebook.jpg');
   padding: 10px;
   margin-top: 50px;
   border-radius: 10px;
