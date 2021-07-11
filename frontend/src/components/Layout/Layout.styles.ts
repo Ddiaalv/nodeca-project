@@ -3,7 +3,8 @@ import { styleGuide } from '../../../utils/styleGuide'
 
 const desktopNotebook = `
   margin: 0 auto;
-  width: ${styleGuide.device.lg};
+  padding: 20px;
+  width: 90%;
 `
 
 export const Notebook = styled.div`

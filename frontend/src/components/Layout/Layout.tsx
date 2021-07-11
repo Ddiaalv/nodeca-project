@@ -8,7 +8,7 @@ import { LayoutProps } from './Layout.types'
 
 const Layout: FC<LayoutProps> = ({
   children,
-  title = 'Next.js + Typescript template',
+  title = 'David Díaz Alvarez',
 }) => (
   <Notebook>
     <Head>
