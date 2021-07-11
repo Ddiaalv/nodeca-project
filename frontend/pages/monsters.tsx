@@ -1,26 +1,23 @@
 import { useEffect, useState } from 'react'
 import Layout from '../src/components/Layout/Layout'
-import {
-  Browser,
-  Container,
-  FormSection,
-  Icon,
-  List,
-} from '../src/styles/monsters'
+import { List } from '../src/components/Monsters/List/List'
+import { Monster } from '../src/components/Monsters/List/List.types'
+import { MonsterData } from '../src/components/Monsters/monsters.types'
+import { getMonsters } from '../src/domain/service/monsters/getMonsters'
+import { Browser, Container, FormSection } from '../src/styles/monsters'
 
 const Monsters = () => {
-  const [monsters, setMonsters] = useState([])
-  const [isLoading, setIsLoading] = useState<boolean>(true)
-
-  const getMonsters = async (url: string) => {
-    const response = await fetch(url)
-    return await response.json()
-  }
+  const [monsters, setMonsters] = useState<Monster[]>([])
+  const [data, setData] = useState<MonsterData>({
+    monsters: [],
+    isLoading: true,
+  })
 
   useEffect(() => {
+    console.log(monsters)
     getMonsters('http://192.168.0.16:3001/monsters').then((response) => {
       setMonsters(response)
-      setIsLoading(false)
+      setData({ monsters: response, isLoading: false })
     })
   }, [])
 
@@ -93,23 +90,7 @@ const Monsters = () => {
             </label>
           </FormSection>
         </Browser>
-        <List>
-          {isLoading ? (
-            <p>Cargando...</p>
-          ) : monsters.length > 0 ? (
-            monsters.map((monster, index) => (
-              <Icon key={index}>
-                <img
-                  className={'monster-icon'}
-                  src={`/img/monsters/icon${monster.ruta}.png`}
-                  alt={`icono del monstruo ${monster.nombre}`}
-                />
-              </Icon>
-            ))
-          ) : (
-            <p>No se han encontrado resultados</p>
-          )}
-        </List>
+        <List data={data} />
       </Container>
     </Layout>
   )
