@@ -1,0 +1,42 @@
+export const data = {
+  monsters: [
+    {
+      ordenMenu: 1,
+      nombre: 'Aptonoth',
+      ruta: 'Aptonoth',
+      tipo: 'Pequeño',
+      especie: 'Hervíboro',
+      fuego: 2,
+      agua: 2,
+      rayo: 0,
+      hielo: 2,
+      draco: 0,
+    },
+    {
+      ordenMenu: 2,
+      nombre: 'Jagras',
+      ruta: 'Jagras',
+      tipo: 'Pequeño',
+      especie: 'Wyvern de colmillos',
+      fuego: 2,
+      agua: 0,
+      rayo: 2,
+      hielo: 0,
+      draco: 0,
+    },
+  ],
+  result: [
+    {
+      ordenMenu: 2,
+      nombre: 'Jagras',
+      ruta: 'Jagras',
+      tipo: 'Pequeño',
+      especie: 'Wyvern de colmillos',
+      fuego: 2,
+      agua: 0,
+      rayo: 2,
+      hielo: 0,
+      draco: 0,
+    },
+  ],
+}
