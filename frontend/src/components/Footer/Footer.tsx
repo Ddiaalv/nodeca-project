@@ -2,7 +2,9 @@ import { FC } from 'react'
 import { FooterStyled } from './Footer.styles'
 
 export const Footer: FC = () => (
-  <FooterStyled> Creado por David Díaz Alvarez </FooterStyled>
+  <FooterStyled>
+    <p>Imágenes propiedad de: ©CAPCOM CO.,LTD. ALL RIGHTS RESERVED.</p>
+  </FooterStyled>
 )
 
 Footer.displayName = 'Footer'

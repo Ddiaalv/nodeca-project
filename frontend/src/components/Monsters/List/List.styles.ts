@@ -11,6 +11,7 @@ export const ListStyled = styled.div`
   grid-auto-flow: column;
   align-items: center;
   align-content: center;
+  justify-content: center;
   grid-gap: 5px;
   overflow-x: scroll;
   @media (min-width: ${styleGuide.device.lg}) {
