@@ -1,47 +1,69 @@
 # **Nodeca**
 
 - [**Nodeca**](#nodeca)
-  - [**Estructura**](#estructura)
+  - [**Live**](#live)
+  - [**Estructura del proyecto:**](#estructura-del-proyecto)
     - [**Database**](#database)
     - [**Backend**](#backend)
-  - [**Entorno de desarrollo**](#entorno-de-desarrollo)
-    - [**Database**](#database-1)
-      - [**Credenciales**](#credenciales)
-      - [**Información adicional**](#información-adicional)
-    - [**Backend**](#backend-1)
-  - [**Tecnologías**](#tecnologías)
-    - [**Database**](#database-2)
-    - [**Backend**](#backend-2)
+    - [**Frontend**](#frontend)
+  - [**¿Cómo desplegar nuestro entorno de desarrollo?**](#cómo-desplegar-nuestro-entorno-de-desarrollo)
+    - [**Backend y Frontend**](#backend-y-frontend)
+  - [**¿Cómo está configurado mi dockerfile y docker-compose?**](#cómo-está-configurado-mi-dockerfile-y-docker-compose)
+  - [**Credenciales base de datos local**](#credenciales-base-de-datos-local)
+  - [**Malas prácticas**](#malas-prácticas)
 
-## **Estructura**
+## **Live**
+
+[Nodeca](https://fe-ndc.vercel.app/)
+
+## **Estructura del proyecto:**
 
 ### **Database**
 
 Base de datos creada mediante [Docker](https://www.docker.com/)
-utilizando [docker-compose](https://docs.docker.com/compose/) para generar un contenedor de MariaDB al que atacar desde
-el Backend.
+utilizando [docker-compose](https://docs.docker.com/compose/) para generar un contenedor de MariaDB al que atacar desde el Backend.
 
 ### **Backend**
 
-Pequeña aplicación creada con el objetivo de ofrece uno o varios end points de datos para utilizar desde el Frontend.
+cd frontend
+Node + Express para generar una API que utilizaremos desde el Frontend. "Dockerizamos" ésta misma app para utilizarla junto a la base de datos por medio de docker-compose.
 
-## **Entorno de desarrollo**
+### **Frontend**
 
-Requisitos:
+Muestra un listado de monstruos con multiples filtros para buscar el monstruo que queramos y además ver la información de éste.
 
-- Docker + Docker-composer
+## **¿Cómo desplegar nuestro entorno de desarrollo?**
 
-### **Database**
+Este proyecto está mas centrado en el Frontend, por lo que para generar un entorno de desarrollo opté por dockerizar el _backend_ junto a la _base de datos_, para ello podemos utilizarla de la siguiente forma:
 
 ```bash
-# Entramos en la carpeta de database.
-cd database
-
-# Creamos nuestro contenedor de MariaDB.
+# Ejecutamos en la raíz de nuestro proyecto:
 docker-compose up
 ```
 
-#### **Credenciales**
+### **Backend y Frontend**
+
+```bash
+# Entramos en la carpeta de nuestro frontend/backend.
+cd frontend
+cd backend
+
+# Si es la primera vez, instalamos las dependencias.
+yarn install
+
+# Ejecutar nuestro servidor de desarrollo.
+yarn dev # Frontend puerto 3000
+yarn dev # Backend puerto 3001
+
+```
+
+## **¿Cómo está configurado mi dockerfile y docker-compose?**
+
+La base de datos, como sus tablas se generan de forma automática por medio del script (`database/init/init.sql`). Éste script crea la base de datos, sus tablas y además importa los datos y los inserta en éstas desde un archivo csv. (`database/init/csv/[nombre-archivo].csv`). Cabe destacar que este contenedor tiene configurado un volumen con permanencia de datos (los datos se guardarán en: `database/data`), para evitar que la información desaparezca si el contenedor se detiene.
+
+Al tener la base de datos preparada, se "dockeriza" el backend enlazado con ésta.
+
+## **Credenciales base de datos local**
 
 ```bash
 Host: localhost
@@ -51,47 +73,10 @@ Usuario: root
 Contraseña BDD: secret
 ```
 
-> Este tipo de datos debería de estar gestionado mediante variables de entorno, pero por ahora el ejercicio no lo necesita ya que es educativo.
+## **Malas prácticas**
 
-#### **Información adicional**
+En este proyecto tengo malas prácticas que fuerzo hacer para que no sea tan complicado "trastear" con este proyecto.
 
-Este contenedor genera automáticamente la estructura de la base de datos tales como las tablas además importa los datos e inserta en éstas desde un archivo csv. (`database/init/csv/[nombre-archivo].csv`). Cabe destacar que este contenedor tiene configurado un volumen con permanencia de datos (los datos se guardarán en: `database/data`), para evitar que la información desaparezca si el contenedor se detiene .
+- No añadir el archivo .env.development a .gitignore. mostrando las credenciales de la base de datos local.
 
-### **Backend**
-
-```bash
-# Entramos en la carpeta de nuestro backend.
-cd backend
-
-# Si es la primera vez, instalamos las dependencias.
-yarn install
-
-# Ejecutar nuestro servidor de desarrollo.
-yarn dev
-```
-
-## **Tecnologías**
-
-### **Database**
-
-| Nombre                              | Detalles                                       |
-| ----------------------------------- | ---------------------------------------------- |
-| 🐳[Docker](https://www.docker.com/) | Despliegue de base de datos en un contenedor . |
-
-### **Backend**
-
-| Nombre                                                 | Detalles                                                                    |
-| ------------------------------------------------------ | --------------------------------------------------------------------------- |
-| 💻[Node.js](https://nodejs.org/en/)                    | Es nuestro entorno en tiempo de ejecución con Javascript                    |
-| 🔨[Express](http://expressjs.com/)                     | Utilidad para gestionar de mejor forma el crear aplicaciones web y API      |
-| 🌐[Typescript](https://www.typescriptlang.org/)        | Lenguaje de tipos para Javascript                                           |
-| 👀[Eslint](https://eslint.org/)                        | Linter para controlar errores en nuestro código                             |
-| 🦋[Prettier](https://prettier.io/)                     | Formateador de nuestro código                                               |
-| 👻[DotEnv](https://www.npmjs.com/package/dotenv)       | Utilidad para utilizar variables de entorno en nuestro desarrollo           |
-| 👻[Cross-env](https://www.npmjs.com/package/cross-env) | Simplifica la asignación de nuestras variables de entorno                   |
-| 🧪[Jest](https://jestjs.io/)                           | Nuestro gestor de test para Javascript                                      |
-| ⚗️[Supertest](https://www.npmjs.com/package/supertest) | Módulo para la abstracción de alto nivel para testing de HTTP               |
-| 👿[Nodemon](https://www.npmjs.com/package/nodemon)     | Utilidad que monitorea los cambios de nuestro código mientras desarrollamos |
-| 🐺[Husky](https://www.npmjs.com/package/husky)         | Comprueba errores en nuestro código para evitar errores en nuestros commit  |
-| 🚫[Lint-staged](https://github.com/okonet/lint-staged) | Ejecuta linter/formater/tests para evitar errores antes de hacer un commit  |
-| 💽[Mysql](https://www.npmjs.com/package/mysql)         | Conector para node para realizar una conexión a nuestra base de datos Mysql |
+- Utilizar la cuenta de root para hacer consultas a la base de datos. Lo ideal sería utilizar un usuario con permisos de únicamente lectura.

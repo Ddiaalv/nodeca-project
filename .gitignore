@@ -1,12 +1,10 @@
 # DATABASE
 database/data
-database/init/csv
 
 # BACKEND
 node_modules
 dist
 
 # ENV
-.env.development
 .env.production
 .env.test

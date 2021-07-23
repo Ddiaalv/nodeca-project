@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+  database:
+    image: mariadb:10
+    container_name: database
+    restart: always
+    environment:
+      MYSQL_DATABASE: nodeca
+      MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - 3306:3306
+    volumes:
+      - ./database/data:/var/lib/mysql
+      - ./database/init/csv:/var/lib/csv
+      - ./database/init:/docker-entrypoint-initdb.d/:ro
+  app:
+    build: ./backend
+    container_name: backend
+    restart: on-failure
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=database
+      - DB_DATABASE=nodeca
+      - DB_USER=root
+      - DB_PASSWORD=secret
+    ports:
+      - 3001:3001
+    links:
+      - database
+    depends_on:
+      - database
+volumes:
+  mariadb:
