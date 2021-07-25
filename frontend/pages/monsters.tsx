@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import Layout from '../src/components/Layout/Layout'
 import { List } from '../src/components/Monsters/List/List'
-import { Monster } from '../src/components/Monsters/List/List.types'
+import { MonsterMenu } from '../src/components/Monsters/List/List.types'
 import { MonsterData } from '../src/components/Monsters/monsters.types'
 import {
   applyMonsterFilters,
@@ -13,8 +13,8 @@ import { species } from '../src/lib/species'
 import { Browser, Container, FormSection } from '../src/styles/monsters'
 import { getUrlEnv } from '../utils/urlEnv'
 
-const Monsters = () => {
-  const [monsters, setMonsters] = useState<Monster[]>([])
+const Monsters: FC = ({ children }) => {
+  const [monsters, setMonsters] = useState<MonsterMenu[]>([])
   const [selectedSpecies, setSelectedSpecies] = useState<string[]>([])
   const [selectedWeakness, setSelectedWeakness] = useState<string[]>([])
   const [userSearch, setUserSearch] = useState<string>('')
@@ -94,6 +94,7 @@ const Monsters = () => {
         </Browser>
         <List data={data} />
       </Container>
+      {children}
     </Layout>
   )
 }

@@ -1,6 +1,6 @@
-import { Monster } from './List/List.types'
+import { MonsterMenu } from './List/List.types'
 
 export interface MonsterData {
-  monsters: Monster[]
+  monsters: MonsterMenu[]
   isLoading: boolean
 }

@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react/types-6-0'
-import { ListTypes } from './List.types'
+import ListTypes from './List.types'
 import { List } from './List'
 
 export default {
@@ -7,7 +7,9 @@ export default {
   component: List,
 } as Meta
 
-const Template: Story<ListTypes> = () => <List />
+const Template: Story<ListTypes> = () => (
+  <List data={{ monsters: [], isLoading: true }} />
+)
 
 export const DefaultTemplate = Template.bind({})
 DefaultTemplate.args = {}

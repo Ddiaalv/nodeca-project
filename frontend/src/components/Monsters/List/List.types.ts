@@ -1,6 +1,6 @@
 import { MonsterData } from '../monsters.types'
 
-export interface Monster {
+export interface MonsterMenu {
   ordenMenu: number
   nombre: string
   ruta: string
@@ -11,6 +11,37 @@ export interface Monster {
   rayo: number
   hielo: number
   draco: number
+}
+
+export interface Monster {
+  ordenMenu: number
+  nombre: string
+  ruta: string
+  especie: string
+  tipo: string
+  rango: string
+  caracteristicas: string
+  notas: string
+  tamanoMin: number
+  tamanoMax: number
+  fuego: number
+  agua: number
+  rayo: number
+  hielo: number
+  draco: number
+  veneno: number
+  sueno: number
+  paralisis: number
+  nitro: number
+  aturdimiento: number
+  elemento01: string
+  elemento02: string
+  resistencia01: string
+  resistencia02: string
+  resistencia03: string
+  estado01: string
+  estado02: string
+  estado03: string
 }
 
 export default interface ListProps {

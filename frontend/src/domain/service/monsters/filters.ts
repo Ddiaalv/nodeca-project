@@ -1,4 +1,4 @@
-import { Monster } from '../../../components/Monsters/List/List.types'
+import { MonsterMenu } from '../../../components/Monsters/List/List.types'
 
 export const selectedItems = (value: string, elements: string[]) => {
   const tempElements = elements
@@ -7,10 +7,10 @@ export const selectedItems = (value: string, elements: string[]) => {
   else return tempElements.filter((element) => element !== value)
 }
 
-export const byName = (name: string) => (monster: Monster) =>
+export const byName = (name: string) => (monster: MonsterMenu) =>
   monster.nombre.toLowerCase().includes(name.toLowerCase().trim())
 
-export const bySpecies = (species: string[]) => (monster: Monster) => {
+export const bySpecies = (species: string[]) => (monster: MonsterMenu) => {
   const tempSpecies = species.map((specie) => specie.toLowerCase())
   const specieSplitted = monster.especie.split(' ')
   const specie = specieSplitted[specieSplitted.length - 1]
@@ -25,7 +25,7 @@ export const byWeakness = (elements: string[]) => (monster: any) => {
 }
 
 export const applyMonsterFilters = (
-  monsters: Monster[],
+  monsters: MonsterMenu[],
   search: string,
   species: string[],
   weakness: string[]
