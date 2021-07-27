@@ -1,54 +1,27 @@
-# Typescript Next.js template
+# FRONT-END
 
-Template creado a partir del proyecto de [Next.js](https://nextjs.org/) generado por medio de [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) donde se utiliza Typescript y se añaden nuevas configuraciones y dependencias.
+Proyecto generado a partir de un template personal para Front-end [Template](https://github.com/Ddiaalv/next-ts-template).
 
 ## Índice
 
-- [Typescript Next.js template](#typescript-nextjs-template)
+- [FRONT-END](#front-end)
   - [Índice](#índice)
-  - [Ejemplo live](#ejemplo-live)
-  - [Empezando...](#empezando)
+  - [Live](#live)
   - [Tecnologías](#tecnologías)
   - [Npm scripts](#npm-scripts)
   - [Make scripts](#make-scripts)
 
-## Ejemplo live
+## Live
 
-[Template en producción](https://next-typescript-template-kf2b3xib6.vercel.app/)
+Puede tardar un poco en cargar la lista de monstruos ya que el backend y la base de datos estan desplegados en Heroku debe "encender el servidor" si no se ha utilizado en un tiempo.
 
-## Empezando...
-
-Para iniciar el proyecto:
-
-```bash
-make init
-make dev
-# or
-yarn install
-yarn dev
-```
-
-Abre [http://localhost:3000](http://localhost:3000) con tu navegador para ver el resultado.
+[Template en producción](https://fe-ndc.vercel.app/monsters)
 
 ## Tecnologías
 
-| Nombre                                                   | Detalles                                                                   |
-| -------------------------------------------------------- | -------------------------------------------------------------------------- |
-| 📦[Webpack](https://webpack.js.org/)                     | Bundler para aplicaciones web                                              |
-| ⚛️[React](https://es.reactjs.org/)                       | JavaScript Framework                                                       |
-| ⏭️[Next](https://nextjs.org/)                            | React Framework                                                            |
-| 🌐[Typescript](https://es.wikipedia.org/wiki/TypeScript) | Lenguaje de programación superconjunto de Javascript                       |
-| 👁️[Eslint](https://eslint.org/)                          | Linter para controlar errores en nuestro código                            |
-| 🦋[Prettier](https://prettier.io/)                       | Formatea nuestro código                                                    |
-| 🐺[Husky](https://www.npmjs.com/package/husky)           | Comprueba errores en nuestro código para evitar errores en nuestros commit |
-| 🚫[Lint-staged](https://github.com/okonet/lint-staged)   | Ejecuta los linters para evitar errores antes de hacer un commit           |
-| 💅[Emotion](https://emotion.sh/)                         | CSS in JS - Permite usar "Styled-Components"                               |
-| 🧪[Jest](https://jestjs.io/)                             | Framework de testing                                                       |
-| 🐐[Testing-library-react](https://testing-library.com/)  | Testing para nuestro UI                                                    |
-| 🌲[Cypress](https://www.cypress.io/)                     | Testing end-to-end                                                         |
-| 🧾[Hygen](https://www.hygen.io/)                         | Generador de código                                                        |
-| 📕[Storybook](https://storybook.js.org/)                 | Herramienta de desarrollo de interfaces de usuario por componentes         |
-| 🐏[Makefile](https://es.wikipedia.org/wiki/Make)         | Gestor de tareas, dependencias...                                          |
+| Nombre | Detalles |
+| ------ | -------- |
+| .      |
 
 ## Npm scripts
 

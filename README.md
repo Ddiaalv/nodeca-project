@@ -7,7 +7,7 @@
     - [**Backend**](#backend)
     - [**Frontend**](#frontend)
   - [**¿Cómo desplegar nuestro entorno de desarrollo?**](#cómo-desplegar-nuestro-entorno-de-desarrollo)
-    - [**Backend y Frontend**](#backend-y-frontend)
+    - [**Frontend**](#frontend-1)
   - [**¿Cómo está configurado mi dockerfile y docker-compose?**](#cómo-está-configurado-mi-dockerfile-y-docker-compose)
   - [**Credenciales base de datos local**](#credenciales-base-de-datos-local)
   - [**Malas prácticas**](#malas-prácticas)
@@ -25,7 +25,6 @@ utilizando [docker-compose](https://docs.docker.com/compose/) para generar un co
 
 ### **Backend**
 
-cd frontend
 Node + Express para generar una API que utilizaremos desde el Frontend. "Dockerizamos" ésta misma app para utilizarla junto a la base de datos por medio de docker-compose.
 
 ### **Frontend**
@@ -34,26 +33,24 @@ Muestra un listado de monstruos con multiples filtros para buscar el monstruo qu
 
 ## **¿Cómo desplegar nuestro entorno de desarrollo?**
 
-Este proyecto está mas centrado en el Frontend, por lo que para generar un entorno de desarrollo opté por dockerizar el _backend_ junto a la _base de datos_, para ello podemos utilizarla de la siguiente forma:
+Este proyecto está más centrado en el Frontend, por lo que para generar un entorno de desarrollo opté por dockerizar el _backend_ junto a la _base de datos_, para ello podemos utilizarla de la siguiente forma:
 
 ```bash
 # Ejecutamos en la raíz de nuestro proyecto:
 docker-compose up
 ```
 
-### **Backend y Frontend**
+### **Frontend**
 
 ```bash
-# Entramos en la carpeta de nuestro frontend/backend.
+# Entramos en la carpeta de nuestro frontend.
 cd frontend
-cd backend
 
 # Si es la primera vez, instalamos las dependencias.
 yarn install
 
 # Ejecutar nuestro servidor de desarrollo.
 yarn dev # Frontend puerto 3000
-yarn dev # Backend puerto 3001
 
 ```
 
@@ -75,7 +72,7 @@ Contraseña BDD: secret
 
 ## **Malas prácticas**
 
-En este proyecto tengo malas prácticas que fuerzo hacer para que no sea tan complicado "trastear" con este proyecto.
+En este proyecto tengo malas prácticas que fuerzo hacer para que no sea tan complicado "trastear" con este proyecto. Entre otros:
 
 - No añadir el archivo .env.development a .gitignore. mostrando las credenciales de la base de datos local.
 

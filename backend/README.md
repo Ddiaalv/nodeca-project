@@ -1,16 +1,22 @@
-# Express + TypeScript
+# BACK-END
 
-Template creado para uso personal destinado a generar un nuevo proyecto de Backend de forma fácil usando `Express` y `TypeScript`.
-
-Si inicializamos directamente el template nos dará error... ya que está preparado para conectarse a una `BDD` de `MariaDB` la cual no está incluida en este template. Los datos de conexión están especificados en varios archivos de variables de entorno: `.env.development`, `.env.production`, `.env.test`.
+Proyecto generado a partir de un template personal para Back-end [Template](https://github.com/Ddiaalv/express-ts-template).
 
 ## Indice
 
-- [Express + TypeScript](#express--typescript)
+- [BACK-END](#back-end)
   - [Indice](#indice)
+  - [Live](#live)
   - [Tecnologías](#tecnologías)
   - [Scripts de npm](#scripts-de-npm)
   - [Ejemplo archivo .env:](#ejemplo-archivo-env)
+
+## Live
+
+Puede tardar un poco en cargar, ya que al estar desplegado en Heroku debe "encender el servidor" si no se ha utilizado en un tiempo.
+
+- [Lista monstruos](https://be-ndc.herokuapp.com/monsters)
+- [Monstruo](https://be-ndc.herokuapp.com/monsters/Rathalos)
 
 ## Tecnologías
 
