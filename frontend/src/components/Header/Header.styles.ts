@@ -9,6 +9,7 @@ export const HeaderStyled = styled.header`
 export const Title = styled.h1`
   position: absolute;
   color: ${styleGuide.color.paper};
+  text-shadow: 0 3px 0 rgb(0 0 0 / 40%);
 `
 
 export const HeaderImg = styled.img`
