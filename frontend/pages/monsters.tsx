@@ -1,44 +1,23 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import Layout from '../src/components/Layout/Layout'
 import { List } from '../src/components/Monsters/List/List'
-import { MonsterMenu } from '../src/components/Monsters/List/List.types'
-import { MonsterData } from '../src/components/Monsters/monsters.types'
-import {
-  applyMonsterFilters,
-  selectedItems,
-} from '../src/domain/service/monsters/filters'
+import { selectedItems } from '../src/domain/service/monsters/filters'
+import { getFilteredMonsters } from '../src/domain/service/monsters/getFilteredMonsters'
 import { getMonsters } from '../src/domain/service/monsters/getMonsters'
 import { elements, species } from '../src/lib/render'
 import { Browser, Container, FormSection } from '../src/styles/monsters'
-import { getUrlEnv } from '../utils/urlEnv'
 
 const Monsters: FC = ({ children }) => {
-  const [monsters, setMonsters] = useState<MonsterMenu[]>([])
+  const { monsters } = getMonsters()
   const [selectedSpecies, setSelectedSpecies] = useState<string[]>([])
   const [selectedWeakness, setSelectedWeakness] = useState<string[]>([])
   const [userSearch, setUserSearch] = useState<string>('')
-  const [data, setData] = useState<MonsterData>({
-    monsters: [],
-    isLoading: true,
-  })
-
-  useEffect(() => {
-    const url = `${getUrlEnv()}/monsters`
-    getMonsters(url).then((response) => {
-      setMonsters(response)
-      setData({ monsters: response, isLoading: false })
-    })
-  }, [])
-
-  useEffect(() => {
-    const filteredMonsters = applyMonsterFilters(
-      monsters,
-      userSearch,
-      selectedSpecies,
-      selectedWeakness
-    )
-    setData({ ...data, monsters: filteredMonsters })
-  }, [userSearch, selectedSpecies, selectedWeakness])
+  const { data } = getFilteredMonsters(
+    monsters,
+    userSearch,
+    selectedSpecies,
+    selectedWeakness
+  )
 
   return (
     <Layout title="Monsters - David Díaz Alvarez">

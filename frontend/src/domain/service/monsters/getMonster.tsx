@@ -4,7 +4,7 @@ import { getUrlEnv } from '../../../../utils/urlEnv'
 import { Monster } from '../../../components/Monsters/List/List.types'
 import { defaultMonster } from '../../../lib/default/monster'
 
-export const monsterFetch = (id: string | string[], router: NextRouter) => {
+export const getMonster = (id: string | string[], router: NextRouter) => {
   const [monster, setMonster] = useState<Monster>(defaultMonster)
   const [isLoading, setIsLoading] = useState<boolean>(true)
 

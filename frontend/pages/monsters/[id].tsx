@@ -1,7 +1,7 @@
 import { useRouter } from 'next/dist/client/router'
 import { DataFrame } from '../../src/components/Monsters/DataFrame/DataFrame'
 import { TableWeak } from '../../src/components/Monsters/TableWeak/TableWeak'
-import { monsterFetch } from '../../src/domain/service/monsters/monsterFetch'
+import { getMonster } from '../../src/domain/service/monsters/getMonster'
 import { elementKeys, enduranceKeys, stateKeys } from '../../src/lib/render'
 import {
   Article,
@@ -17,7 +17,7 @@ import Monsters from '../monsters'
 const MonsterPage = () => {
   const router = useRouter()
   const { id } = router.query
-  const { monster, isLoading } = monsterFetch(id, router)
+  const { monster, isLoading } = getMonster(id, router)
 
   return (
     <Monsters>
