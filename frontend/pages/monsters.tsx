@@ -8,8 +8,7 @@ import {
   selectedItems,
 } from '../src/domain/service/monsters/filters'
 import { getMonsters } from '../src/domain/service/monsters/getMonsters'
-import { elements } from '../src/lib/elements'
-import { species } from '../src/lib/species'
+import { elements, species } from '../src/lib/render'
 import { Browser, Container, FormSection } from '../src/styles/monsters'
 import { getUrlEnv } from '../utils/urlEnv'
 
