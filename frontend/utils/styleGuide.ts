@@ -1,6 +1,16 @@
 export const styleGuide = {
   color: {
     paper: '#f8f7f2',
+    brown: {
+      lightFill: '#e1cc8d',
+      lightStroke: '#bba279',
+      darkFill: '#ab874d',
+      darkStroke: '#886d42',
+    },
+    red: {
+      light: '#e23836',
+      dark: '#cd2826',
+    },
     pink: {
       light: '#fa598e',
       dark: '#cf3a6b',

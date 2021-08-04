@@ -1,5 +1,6 @@
 import { useRouter } from 'next/dist/client/router'
 import { DataFrame } from '../../src/components/Monsters/DataFrame/DataFrame'
+import { Physiology } from '../../src/components/Monsters/Physiology/Physiology'
 import { TableWeak } from '../../src/components/Monsters/TableWeak/TableWeak'
 import { getMonster } from '../../src/domain/service/monsters/getMonster'
 import { elementKeys, enduranceKeys, stateKeys } from '../../src/lib/render'
@@ -7,7 +8,6 @@ import {
   Article,
   Icon,
   Information,
-  Physiology,
   Quote,
   RowIconText,
   Weakness,
@@ -66,7 +66,7 @@ const MonsterPage = () => {
                       src={`/img/icons/${habitat
                         .split(' ')
                         .join('-')
-                        .toLowerCase()}.png`}
+                        .toLowerCase()}.svg`}
                       alt={`icono del habitat ${habitat}`}
                     />
                   )}
@@ -81,13 +81,15 @@ const MonsterPage = () => {
             <h3>Estados</h3>
             <DataFrame data={monster} type={stateKeys} />
           </Article>
-          <Article>
+          <Article
+            style={{
+              gridTemplateColumns: '1fr',
+              justifyItems: 'center',
+              rowGap: '30px',
+            }}
+          >
             <h2>Fisiología</h2>
-
-            <Physiology
-              src={`/img/monsters/physiology/physRathalos.jpg`}
-              alt=""
-            />
+            <Physiology monster={monster.nombre} isWeak={true} />
             <Quote>
               Recuerda que puedes hacer click sobre las zonas rojas del monstruo
               para descubrir las debilidades del monstruo más a fondo.

@@ -53,6 +53,9 @@ export const Article = styled.article`
   display: grid;
   grid-gap: 10px;
   padding: 0 20px;
+  h2 {
+    justify-self: start;
+  }
   h3 {
     margin: 0;
     margin-top: 5px;
