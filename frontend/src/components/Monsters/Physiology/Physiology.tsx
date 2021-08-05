@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { Barroth } from './Barroth/Barroth'
+import { Jagras } from './Jagras/Jagras'
 import { PhysiologyStyled } from './Physiology.styles'
 import PhysiologyProps from './Physiology.types'
 import { Rathalos } from './Rathalos/Rathalos'
@@ -27,10 +28,13 @@ export const Physiology: FC<PhysiologyProps> = ({ monster, isWeak }) => {
     monster === 'Deviljho Salvaje' ||
     monster === 'Uragaan'
 
+  const isJagrasType = monster === 'Gran Jagras' || monster === 'Dodogama'
+
   return (
     <PhysiologyStyled>
       {isRathalosType && <Rathalos monster={monster} isWeak={isWeak} />}
       {isBarrothType && <Barroth monster={monster} isWeak={isWeak} />}
+      {isJagrasType && <Jagras monster={monster} isWeak={isWeak} />}
     </PhysiologyStyled>
   )
 }
