@@ -7,6 +7,7 @@ import { PhysiologyStyled } from './Physiology.styles'
 import PhysiologyProps from './Physiology.types'
 import { Rathalos } from './Rathalos/Rathalos'
 import { Teostra } from './Teostra/Teostra'
+import { TobiKadachi } from './TobiKadachi/TobiKadachi'
 
 export const Physiology: FC<PhysiologyProps> = ({ monster, isWeak }) => {
   const isRathalosType =
@@ -37,6 +38,8 @@ export const Physiology: FC<PhysiologyProps> = ({ monster, isWeak }) => {
     monster === 'Namielle'
   const isKuluYaku = monster === 'Kulu-Ya-Ku'
   const isJyuratodus = monster === 'Jyuratodus' || monster === 'Lavasioth'
+  const isTobiKadachi =
+    monster === 'Tobi-Kadachi' || monster === 'Tobi-Kadachi Vípero'
 
   return (
     <PhysiologyStyled>
@@ -46,6 +49,7 @@ export const Physiology: FC<PhysiologyProps> = ({ monster, isWeak }) => {
       {isTeostraType && <Teostra monster={monster} isWeak={isWeak} />}
       {isKuluYaku && <Kuluyaku monster={monster} isWeak={isWeak} />}
       {isJyuratodus && <Jyuratodus monster={monster} isWeak={isWeak} />}
+      {isTobiKadachi && <TobiKadachi monster={monster} isWeak={isWeak} />}
     </PhysiologyStyled>
   )
 }
