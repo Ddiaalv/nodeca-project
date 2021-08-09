@@ -15,6 +15,7 @@ export const buildPathImage = (name: string) => {
     'defensa',
     'sueno',
     'paralisis',
+    'viento',
   ]
 
   elements.forEach((element) => {
@@ -28,5 +29,5 @@ export const buildPathImage = (name: string) => {
       }
     }
   })
-  return `/img/icons/${tempName}.png`
+  return `/img/icons/${tempName}.svg`
 }

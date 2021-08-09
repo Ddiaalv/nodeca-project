@@ -15,7 +15,7 @@ export const List: FC<ListProps> = ({ data }) => {
             <Icon>
               <img
                 className={'monster-icon'}
-                src={`/img/monsters/icon${monster.ruta}.png`}
+                src={`/img/monsters/icons/${monster.ruta.toLowerCase()}.webp`}
                 alt={`icono del monstruo ${monster.nombre}`}
               />
             </Icon>

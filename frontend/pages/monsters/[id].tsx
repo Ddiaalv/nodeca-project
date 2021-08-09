@@ -29,10 +29,10 @@ const MonsterPage = () => {
             <h2>Ecología</h2>
             <Information>
               <img
-                src={`/img/monsters/icon${monster.ruta}.png`}
+                src={`/img/monsters/icons/${monster.ruta.toLowerCase()}.webp`}
                 alt={`Icono del monstruo ${monster.ruta}`}
               />
-              <h4>{monster.nombre}</h4>
+              <h3>{monster.nombre}</h3>
               <p>Tamaño: {monster.tipo}</p>
               <p>Especie: {monster.especie}</p>
             </Information>
