@@ -6,6 +6,7 @@ import { applyMonsterFilters } from './filters'
 export const getFilteredMonsters = (
   monsters: MonsterMenu[],
   userSearch: string,
+  selectedSizes: string[],
   selectedSpecies: string[],
   selectedWeakness: string[]
 ) => {
@@ -17,10 +18,11 @@ export const getFilteredMonsters = (
     const filteredMonsters = applyMonsterFilters(
       monsters,
       userSearch,
+      selectedSizes,
       selectedSpecies,
       selectedWeakness
     )
     setData({ ...data, monsters: filteredMonsters })
-  }, [monsters, userSearch, selectedSpecies, selectedWeakness])
+  }, [monsters, userSearch, selectedSizes, selectedSpecies, selectedWeakness])
   return { data }
 }

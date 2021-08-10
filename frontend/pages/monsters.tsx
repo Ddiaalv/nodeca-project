@@ -10,11 +10,13 @@ import { Browser, Container, FormSection } from '../src/styles/monsters'
 const Monsters: FC = ({ children }) => {
   const { monsters } = getMonsters()
   const [selectedSpecies, setSelectedSpecies] = useState<string[]>([])
+  const [selectedSizes, setSelectedSizes] = useState<string[]>([])
   const [selectedWeakness, setSelectedWeakness] = useState<string[]>([])
   const [userSearch, setUserSearch] = useState<string>('')
   const { data } = getFilteredMonsters(
     monsters,
     userSearch,
+    selectedSizes,
     selectedSpecies,
     selectedWeakness
   )
@@ -33,6 +35,23 @@ const Monsters: FC = ({ children }) => {
                 placeholder="Rathalos"
               />
             </label>
+          </FormSection>
+          <FormSection>
+            <legend>Tamaño:</legend>
+            {['Grande', 'Pequeño'].map((size, index) => (
+              <label key={index}>
+                <input
+                  type="checkbox"
+                  value={size}
+                  onClick={(value) =>
+                    setSelectedSizes(
+                      selectedItems(value.currentTarget.value, selectedSizes)
+                    )
+                  }
+                />
+                {size}
+              </label>
+            ))}
           </FormSection>
           <FormSection>
             <legend>Tipo:</legend>
