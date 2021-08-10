@@ -24,26 +24,56 @@ export const byWeakness = (elements: string[]) => (monster: any) => {
   }
 }
 
+export const bySize = (types: string[]) => (monster: any) => {
+  for (const type of types) {
+    const match = monster.tipo.toLowerCase().includes(type.toLowerCase())
+    if (match) return monster
+  }
+}
+
 export const applyMonsterFilters = (
   monsters: MonsterMenu[],
   search: string,
+  sizes: string[],
   species: string[],
   weakness: string[]
 ) => {
   let filteredMonsters = monsters
   const searchIsNotEmpty = search.length > 0
+  const sizesIsNotEmpty = sizes.length > 0
   const speciesIsNotEmpty = species.length > 0
   const weaknessIsNotEmpty = weakness.length > 0
+
+  const searchSpecies = searchIsNotEmpty && speciesIsNotEmpty
+  const searchWeakness = searchIsNotEmpty && weaknessIsNotEmpty
+  const searchTypes = searchIsNotEmpty && sizesIsNotEmpty
+  const sizeSpecies = sizesIsNotEmpty && speciesIsNotEmpty
+  const sizeWeakness = sizesIsNotEmpty && weaknessIsNotEmpty
+  const speciesWeakness = speciesIsNotEmpty && weaknessIsNotEmpty
+
+  const searchSizesSpecies =
+    searchIsNotEmpty && sizesIsNotEmpty && speciesIsNotEmpty
+  const searchSizeWeakness =
+    searchIsNotEmpty && sizesIsNotEmpty && weaknessIsNotEmpty
+  const searchSpeciesWeakness =
+    searchIsNotEmpty && speciesIsNotEmpty && weaknessIsNotEmpty
+  const sizeSpeciesWeakness =
+    sizesIsNotEmpty && speciesIsNotEmpty && weaknessIsNotEmpty
+
   const allFilters =
-    search.length > 0 && species.length > 0 && weakness.length > 0
-  const searchSpecies = search.length > 0 && species.length > 0
-  const searchWeakness = search.length > 0 && weakness.length > 0
-  const speciesWeakness = species.length > 0 && weakness.length > 0
+    searchIsNotEmpty &&
+    sizesIsNotEmpty &&
+    speciesIsNotEmpty &&
+    weaknessIsNotEmpty
 
   if (searchIsNotEmpty) filteredMonsters = monsters.filter(byName(search))
+  if (sizesIsNotEmpty) filteredMonsters = monsters.filter(bySize(sizes))
   if (speciesIsNotEmpty) filteredMonsters = monsters.filter(bySpecies(species))
   if (weaknessIsNotEmpty)
     filteredMonsters = monsters.filter(byWeakness(weakness))
+
+  if (searchTypes)
+    filteredMonsters = monsters.filter(bySize(sizes)).filter(byName(search))
   if (searchSpecies)
     filteredMonsters = monsters
       .filter(byName(search))
@@ -52,10 +82,38 @@ export const applyMonsterFilters = (
     filteredMonsters = monsters
       .filter(byName(search))
       .filter(byWeakness(weakness))
+  if (sizeWeakness)
+    filteredMonsters = monsters
+      .filter(bySize(sizes))
+      .filter(byWeakness(weakness))
+  if (sizeSpecies)
+    filteredMonsters = monsters.filter(bySize(sizes)).filter(bySpecies(species))
   if (speciesWeakness)
     filteredMonsters = monsters
       .filter(bySpecies(species))
       .filter(byWeakness(weakness))
+
+  if (searchSizesSpecies)
+    filteredMonsters = monsters
+      .filter(byName(search))
+      .filter(bySize(sizes))
+      .filter(bySpecies(species))
+  if (searchSizeWeakness)
+    filteredMonsters = monsters
+      .filter(byName(search))
+      .filter(bySize(sizes))
+      .filter(byWeakness(weakness))
+  if (searchSpeciesWeakness)
+    filteredMonsters = monsters
+      .filter(byName(search))
+      .filter(bySpecies(species))
+      .filter(byWeakness(weakness))
+  if (sizeSpeciesWeakness)
+    filteredMonsters = monsters
+      .filter(bySize(sizes))
+      .filter(bySpecies(species))
+      .filter(byWeakness(weakness))
+
   if (allFilters)
     filteredMonsters = monsters
       .filter(byName(search))
