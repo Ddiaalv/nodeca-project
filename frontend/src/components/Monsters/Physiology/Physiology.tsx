@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { Barroth } from './Barroth/Barroth'
+import { Girros } from './Girros/Girros'
 import { Jagras } from './Jagras/Jagras'
 import { Jyuratodus } from './Jyuratodus/Jyuratodus'
 import { Kuluyaku } from './Kuluyaku/Kuluyaku'
@@ -44,6 +45,7 @@ export const Physiology: FC<PhysiologyProps> = ({ monster, isWeak }) => {
   const isKuluYaku = monster === 'Kulu-Ya-Ku'
   const isTzitziYaKu = monster === 'Tzitzi-Ya-Ku'
   const isPaolumu = monster === 'Paolumu' || monster === 'Paolumu Somnus'
+  const isGirros = monster === 'Gran Girros'
 
   return (
     <PhysiologyStyled>
@@ -56,6 +58,7 @@ export const Physiology: FC<PhysiologyProps> = ({ monster, isWeak }) => {
       {isTobiKadachi && <TobiKadachi monster={monster} isWeak={isWeak} />}
       {isTzitziYaKu && <TzitziYaKu monster={monster} isWeak={isWeak} />}
       {isPaolumu && <Paolumu monster={monster} isWeak={isWeak} />}
+      {isGirros && <Girros monster={monster} isWeak={isWeak} />}
     </PhysiologyStyled>
   )
 }
