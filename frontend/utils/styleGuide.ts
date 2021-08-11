@@ -1,6 +1,9 @@
 export const styleGuide = {
   color: {
     paper: '#f8f7f2',
+    white: {
+      physiology: '#f6edd6',
+    },
     brown: {
       lightFill: '#e1cc8d',
       lightStroke: '#bba279',
