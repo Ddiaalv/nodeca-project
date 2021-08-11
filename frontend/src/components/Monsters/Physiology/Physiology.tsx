@@ -4,6 +4,7 @@ import { Girros } from './Girros/Girros'
 import { Jagras } from './Jagras/Jagras'
 import { Jyuratodus } from './Jyuratodus/Jyuratodus'
 import { Kuluyaku } from './Kuluyaku/Kuluyaku'
+import { Odogaron } from './Odogaron/Odogaron'
 import { Paolumu } from './Paolumu/Paolumu'
 import { PhysiologyStyled } from './Physiology.styles'
 import PhysiologyProps from './Physiology.types'
@@ -48,6 +49,7 @@ export const Physiology: FC<PhysiologyProps> = ({ monster, isWeak }) => {
   const isPaolumu = monster === 'Paolumu' || monster === 'Paolumu Somnus'
   const isGirros = monster === 'Gran Girros'
   const isRadobaan = monster === 'Radobaan'
+  const isOdogaron = monster === 'Odogaron' || monster === 'Odogaron Ébano'
 
   return (
     <PhysiologyStyled>
@@ -62,6 +64,7 @@ export const Physiology: FC<PhysiologyProps> = ({ monster, isWeak }) => {
       {isPaolumu && <Paolumu monster={monster} isWeak={isWeak} />}
       {isGirros && <Girros monster={monster} isWeak={isWeak} />}
       {isRadobaan && <Radobaan monster={monster} isWeak={isWeak} />}
+      {isOdogaron && <Odogaron monster={monster} isWeak={isWeak} />}
     </PhysiologyStyled>
   )
 }
