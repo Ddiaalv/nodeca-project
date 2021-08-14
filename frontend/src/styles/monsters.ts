@@ -19,15 +19,14 @@ export const Browser = styled.form`
     ${styleGuide.color.yellow.light},
     ${styleGuide.color.yellow.dark}
   );
+  max-width: 265px;
   display: grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   padding: 5px;
   border-bottom-right-radius: 60px 5px;
   border-bottom-left-radius: 102px 5px;
   box-shadow: 1px 1px 10px -7px rgb(0 0 0 / 75%);
-  & fieldset:nth-of-type(1) {
-    grid-column: 1/-1;
-  }
+
   @media (min-width: ${styleGuide.device.lg}) {
     grid-template-columns: initial;
   }
@@ -40,9 +39,10 @@ export const FormSection = styled.fieldset`
   margin: 0;
   grid-template-columns: 1fr 1fr;
   align-content: start;
-  legend {
+  p {
     font-weight: bolder;
     grid-column: 1/-1;
+    margin: 0;
   }
   @media (min-width: ${styleGuide.device.lg}) {
     grid-template-columns: initial;

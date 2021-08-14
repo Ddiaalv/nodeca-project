@@ -26,7 +26,7 @@ const Monsters: FC = ({ children }) => {
       <Container>
         <Browser>
           <FormSection>
-            <legend>Buscar:</legend>
+            <p>Buscar:</p>
             <label htmlFor="searchByName">
               <input
                 onChange={(value) => setUserSearch(value.target.value)}
@@ -37,7 +37,7 @@ const Monsters: FC = ({ children }) => {
             </label>
           </FormSection>
           <FormSection>
-            <legend>Tamaño:</legend>
+            <p>Tamaño:</p>
             {['Grande', 'Pequeño'].map((size, index) => (
               <label key={index}>
                 <input
@@ -54,7 +54,7 @@ const Monsters: FC = ({ children }) => {
             ))}
           </FormSection>
           <FormSection>
-            <legend>Tipo:</legend>
+            <p>Tipo:</p>
             {species.map((specie, index) => (
               <label key={index}>
                 <input
@@ -71,7 +71,7 @@ const Monsters: FC = ({ children }) => {
             ))}
           </FormSection>
           <FormSection>
-            <legend>Débil a:</legend>
+            <p>Débil a:</p>
             {elements.map((element, index) => (
               <label key={index}>
                 <input
