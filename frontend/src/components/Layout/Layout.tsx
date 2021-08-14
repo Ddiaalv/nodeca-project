@@ -3,7 +3,7 @@ import { FC } from 'react'
 import { Footer } from '../Footer/Footer'
 import { Header } from '../Header/Header'
 import { NavMenu } from '../NavMenu/NavMenu'
-import { Notebook, Paper } from './Layout.styles'
+import { Notebook, BackPaper, Paper } from './Layout.styles'
 import { LayoutProps } from './Layout.types'
 
 const Layout: FC<LayoutProps> = ({
@@ -45,9 +45,13 @@ const Layout: FC<LayoutProps> = ({
     </Head>
     <NavMenu />
     <Paper>
-      <Header />
-      <main>{children}</main>
-      <Footer />
+      <BackPaper>
+        <Header />
+        <main style={{ paddingLeft: '25px', paddingRight: '10px' }}>
+          {children}
+        </main>
+        <Footer />
+      </BackPaper>
     </Paper>
   </Notebook>
 )

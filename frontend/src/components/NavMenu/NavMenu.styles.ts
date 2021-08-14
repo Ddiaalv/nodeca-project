@@ -11,7 +11,7 @@ export const NavMenuStyled = styled.nav`
   align-items: end;
   grid-template-columns: repeat(2, auto);
   @media (min-width: ${styleGuide.device.md}) {
-    top: -15px;
+    top: -20px;
   }
 `
 

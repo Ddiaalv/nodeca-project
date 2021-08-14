@@ -1,8 +1,6 @@
 import styled from '@emotion/styled'
 
-export const CoverPage = styled.article`
-  padding: 0 20px;
-`
+export const CoverPage = styled.article``
 
 export const Technologies = styled.div`
   display: grid;
